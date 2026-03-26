@@ -2,7 +2,8 @@ function initTypingEffect() {
   const typedText = document.getElementById("typed-text");
   if (!typedText) return;
 
-  const fullText = " led people under pressure, won every competition I entered, and I want to do it at Amazon's scale.";
+  const fullText =
+    " led people under pressure, won every competition I entered, and I want to do it at Amazon's scale.";
   let index = 0;
 
   const interval = setInterval(() => {
@@ -83,7 +84,7 @@ function initScrollAnimations() {
 
   const observerTargets = [
     ...Array.from(animatedElements),
-    ...Array.from(sections)
+    ...Array.from(sections),
   ];
 
   if (timeline) {
@@ -105,7 +106,12 @@ function initScrollAnimations() {
           counterControl.animateCounters();
         }
 
-        if (target.id && target.tagName.toLowerCase() === "section" && entry.isIntersecting && entry.intersectionRatio > 0.22) {
+        if (
+          target.id &&
+          target.tagName.toLowerCase() === "section" &&
+          entry.isIntersecting &&
+          entry.intersectionRatio > 0.22
+        ) {
           setActiveNav(target.id);
         }
 
@@ -115,8 +121,8 @@ function initScrollAnimations() {
       });
     },
     {
-      threshold: [0.12, 0.22, 0.45]
-    }
+      threshold: [0.12, 0.22, 0.45],
+    },
   );
 
   observerTargets.forEach((target) => observer.observe(target));
@@ -136,6 +142,27 @@ function initScrollAnimations() {
 
   mobileLinks.forEach((link) => {
     link.addEventListener("click", closeMobileMenu);
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!mobileMenu || !hamburger) return;
+    const clickedMenu = mobileMenu.contains(event.target);
+    const clickedHamburger = hamburger.contains(event.target);
+    if (!clickedMenu && !clickedHamburger) {
+      closeMobileMenu();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeMobileMenu();
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 1180) {
+      closeMobileMenu();
+    }
   });
 
   window.addEventListener("scroll", () => {
