@@ -423,6 +423,68 @@ a {
   border-radius: 4px;
 }
 
+/* ═══ SECTION 2A/2B: QUICK FIT + METRICS SNAPSHOT ═══ */
+.quick-fit-card,
+.metrics-snapshot-card {
+  background: var(--white);
+  border: 1px solid #dddddd;
+  border-left: 4px solid var(--amazon-orange);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  border-radius: 4px;
+  padding: 24px;
+}
+
+.quick-fit-list {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 10px;
+}
+
+.quick-fit-list li {
+  color: var(--text-dark);
+}
+
+.quick-fit-list strong {
+  color: var(--amazon-navy);
+}
+
+.metrics-snapshot-card {
+  width: min(980px, 100%);
+  margin: 0 auto;
+}
+
+.metrics-snapshot-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.snapshot-item {
+  border: 1px solid #dddddd;
+  border-left: 3px solid var(--amazon-orange);
+  border-radius: 4px;
+  padding: 14px;
+  text-align: center;
+  background: #fcfcfc;
+}
+
+.snapshot-value {
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--amazon-dark);
+}
+
+.snapshot-label {
+  margin-top: 4px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: var(--text-mid);
+  font-weight: 600;
+}
+
 /* ═══ SECTION 3: STATS STRIP ═══ */
 .stats-strip {
   background: var(--amazon-orange);
@@ -972,6 +1034,10 @@ a {
     grid-template-columns: 1fr 1fr;
   }
 
+  .metrics-snapshot-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .hero-wrap {
     gap: 32px;
   }
@@ -1015,6 +1081,10 @@ a {
   .cards-2,
   .cards-3,
   .lp-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .metrics-snapshot-grid {
     grid-template-columns: 1fr;
   }
 
